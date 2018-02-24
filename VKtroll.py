@@ -4,7 +4,7 @@ import vk, time
 print("Добро пожаловать!")
 print("Данный скрипт создан с целью троллинга пользователей ВК, постоянно набирающимся текстом.")
 print("Что бы начать использование, неоходимо авторизоваться под реальными данными ВК и указать ID чата.")
-print("Автор скрипта: Осипов Илья.\nВерсия 0.2 beta.")
+print("Автор скрипта: Осипов Илья.\nВерсия 0.3 beta.")
 input("Что бы начать, нажмите Enter")
 print("\n")
 
@@ -26,14 +26,23 @@ print("Подкллючение API...")
 print("Понеслась))\n")
 
 # Сама программа
+
+mins = 0 # Время работы в минутах
+sec = 0 # Время работы в секундах
 while True:
 	if multi == True:
 		var = vk_api.messages.setActivity(chat_id=chatID, type='typing', peer_id=2000000000+chatID)
 		if var == 1:
-			print("Успешно")
+			print("Успешно ["+str(mins)+":"+str(sec)+"]")
 			time.sleep(5)
 	else:
 		var = vk_api.messages.setActivity(chat_id=chatID, type='typing', peer_id=chatID)
 		if var == 1:
-			print("Успешно")
+			print("Успешно ["+str(mins)+":"+str(sec)+"]")
 			time.sleep(5)
+	sec+=5 # Увеличить время на 5 секунд
+	if sec == 60: # Если прошло 60 секунд
+		sec = 0 # Обнулить счётчик секунд
+		mins +=1 # Увеличить счётчик минут
+
+

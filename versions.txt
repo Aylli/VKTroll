@@ -1,5 +1,9 @@
 0.1 beta:
  - Added ability to work with a private chat.
+
 0.2 beta:
  - Added welcome message.
  - Added ability to work with a multi-users chat.
+
+0.3 beta:
+ - Added timer.
